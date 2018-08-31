@@ -1,6 +1,6 @@
 baseurl = "https://blog.yuri-k.com"
 languageCode = "ja-jp"
-title = "Bingo"
+title = "ゆり系"
 theme = "hugo-bingo"
 
 disableHugoGeneratorInject = true
