@@ -37,3 +37,7 @@ publish_mode: editorial_workflow
 デプロイ後にNetlify CMSのContent Managerを開くと、下記のようにWorkflowが利用可能となっています。
 
 ![Netlify CMSのEditorial Workflow](/img/ss-2018-08-31-15.39.45.png)
+
+## 参考資料
+* [Publish mode](https://www.netlifycms.org/docs/configuration-options/#publish-mode)
+* [Update the CMS version](https://www.netlifycms.org/docs/update-the-cms-version/)
