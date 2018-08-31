@@ -1,5 +1,5 @@
 baseurl = "https://blog.yuri-k.com"
-languageCode = "zh-cmn-Hant"
+languageCode = "ja-jp"
 title = "Bingo"
 theme = "hugo-bingo"
 
@@ -7,6 +7,7 @@ disableHugoGeneratorInject = true
 enableEmoji = true
 footnoteReturnLinkContents = "↩"
 hasCJKLanguage = true
+isCJKLanguage = true
 googleAnalytics = "UA-123-45"
 
 
