@@ -1,7 +1,7 @@
 ---
 title: "HugoとNetlify CMSでブログを構築する"
 date: 2018-08-31T00:08:34+09:00
-draft: true
+draft: false
 ---
 
 8月に会社を辞め、次の職場の出勤まで丸1ヶ月のおやすみ。無為に過ごすのもよくないのでとりあえずブログを立ち上げてみようと思いました。
@@ -91,6 +91,13 @@ site> rm -r layouts
 site> cp themes/hugo-bingo/exapmleSite/config.toml config.toml
 site> cp -r themes/hugo-bingo/exampleSite/content . 
 site> mv content/posts content/post
+```
+
+あとは、日本語対応のためconfig.tomlも微修正しておきましょう。`languageCode = "zh-cmn-Hant"`は削除した上で、下記を追記します。
+
+```toml:config.toml
+isCJKLanguage = true
+languageCode = "ja-jp"
 ```
 
 これでtheme（とコンテンツ）がhugo-bingoにおきかわったはず。`hugo server`でローカルのWebサーバーが立ち上がるので、それで確認してみましょう。
