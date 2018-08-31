@@ -9,6 +9,9 @@
     --break-point-medium: 768px;
     --break-point-small: 576px;
 }
+body{
+    font-family:sans-serif;
+}
 
 blockquote {
     background: var(--grey-light);
@@ -221,4 +224,9 @@ ul {
 .hljs {
     border-radius: .25rem;
     padding: 1rem;
+}
+
+.post-content img{
+    width:100%;
+    border:1px solid #ccc;
 }
