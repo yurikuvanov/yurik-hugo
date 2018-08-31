@@ -33,6 +33,9 @@ publish_mode: editorial_workflow
 </html>
 ```
 
+編集が終わったらファイルをGitHubにpushしてNetlifyにデプロイします。
+デプロイ後にNetlify CMSのContent Managerを開くと、下記のようにWorkflowが利用可能となっています。
 
 
 
+![Netlify CMSのEditorial Workflow](/img/ss-2018-08-31-15.39.45.png)
