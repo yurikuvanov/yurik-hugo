@@ -38,20 +38,20 @@ HugoとNetlify CMSを使う場合、記事の投稿ができる状態のブロ�
 
 Netlifyのアカウントを取得した上で、[スターターテンプレート](https://www.netlifycms.org/docs/start-with-a-template/)のページで「Hugo Site Starter」のところの「Deply to netlify」ボタンを押します。
 
-![/post/2018-08-31/01.jpg](/post/2018-08-31/01.jpg)
+![/img/2018-08-31/01.jpg](/img/2018-08-31/01.jpg)
 
 デプロイ元のリポジトリを接続する画面になるので、右下の「Connect to GitHub」を押します。
 
-![990a6ac5.png](/post/2018-08-31/990a6ac5.png)
+![990a6ac5.png](/img/2018-08-31/990a6ac5.png)
 
 接続が終わると下記の画面に。リポジトリ名を入力して「Save & Deply」を押す。
 
-![260c459d.png](/post/2018-08-31/260c459d.png)
+![260c459d.png](/img/2018-08-31/260c459d.png)
 
 以上でほぼ完了。あとはGitHubのリポジトリに必要なファイル諸々が設置され、その後Netlify側にホスティングされます。
 
 
-![91bd6286.png](/post/2018-08-31/91bd6286.png)
+![91bd6286.png](/img/2018-08-31/91bd6286.png)
 
 Netlify側のサイト名はランダムで決められているのでSite Settings→Change Site Nameにて修正しておくと良いでしょう。カスタムドメイン設定が必要ならDomain Settingsから行います。
 
@@ -60,7 +60,7 @@ Netlify側のサイト名はランダムで決められているのでSite Setti
 
 諸々処理が完了すると、ブログが完成。
 
-![721ecce8.png](/post/2018-08-31/721ecce8.png)
+![721ecce8.png](/img/2018-08-31/721ecce8.png)
 
 デフォルトでは謎のコーヒーファーム的テンプレートが使用されているので、修正が必要です。とりあえずテーマだけでも切り替えたいところ。
 
@@ -74,7 +74,7 @@ Netlify側のサイト名はランダムで決められているのでSite Setti
 > git clone git@github.com:YOURACCOUNT/YOURREPOSITORY
 ```
 
-今回は、ミニマル、かつコードハイライトにも対応していていい感じのHugoテーマ[Hugo Bingo](/post/2018-08-31/https://themes.gohugo.io/hugo-bingo/)をありがたく使わせていただきます。Netlifyで作成したサイトにはthemesディレクトリがないので作成してからBingoのテーマを突っ込みます。
+今回は、ミニマル、かつコードハイライトにも対応していていい感じのHugoテーマ[Hugo Bingo](/img/2018-08-31/https://themes.gohugo.io/hugo-bingo/)をありがたく使わせていただきます。Netlifyで作成したサイトにはthemesディレクトリがないので作成してからBingoのテーマを突っ込みます。
 
 ```bash
 netlifycms_dir> cd site
@@ -125,7 +125,7 @@ Press Ctrl+C to stop
 ```
 Webブラウザーでhttp://localhost:1313 にアクセスしてみます。
 
-![091f0014.png](/post/2018-08-31/091f0014.png)
+![091f0014.png](/img/2018-08-31/091f0014.png)
 できた。
 
 Netlify CMSのヘルプページには「netlify identityのウィジェットをheadに追記せよ」とあるので、そうしましょう。
@@ -155,7 +155,7 @@ netlifycms_dir> git push origin master
 
 GitHubにpushすると、それを検知してNetlifyで自動デプロイしてくれます。デプロイが終わってからサイトのURLを叩くと無事サイトが表示されました。
 
-![984829a7.png](/post/2018-08-31/984829a7.png)
+![984829a7.png](/img/2018-08-31/984829a7.png)
 
 CMS管理画面にもログインしてみます。
 URLは「`hoge.com/admin/`」です。
@@ -165,19 +165,19 @@ URLは「`hoge.com/admin/`」です。
 結論から言うと、netlify identityのアカウントとnetlifyのアカウントは別物です。netlifyの管理画面からパスワードリセットのメールが送信できるので、そこからパスワードを設定しましょう。
 
 サイト管理画面から「Identyty」を選び、
-![08606285.png](/post/2018-08-31/08606285.png)
+![08606285.png](/img/2018-08-31/08606285.png)
 
 自分のidentityをクリック
-![6d73dbdb.png](/post/2018-08-31/6d73dbdb.png)
+![6d73dbdb.png](/img/2018-08-31/6d73dbdb.png)
 
 Send reset password emailをクリック
-![0fece4a6.png](/post/2018-08-31/11e8ae54.png)
+![0fece4a6.png](/img/2018-08-31/11e8ae54.png)
 
 送信されてきたメールに記載のURLにアクセスするとパスワード変更できる
-![57e17e9b.png](/post/2018-08-31/57e17e9b.png)
+![57e17e9b.png](/img/2018-08-31/57e17e9b.png)
 
 
 ログインできました。
 
-![eaadffb2.png](/post/2018-08-31/eaadffb2.png)
+![eaadffb2.png](/img/2018-08-31/eaadffb2.png)
 
