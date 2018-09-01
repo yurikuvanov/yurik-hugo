@@ -1,6 +1,6 @@
 ---
 title: HugoとNetlify CMSでブログを構築する
-date: 2018-08-30T15:08:34.000Z
+date: 2018-08-30T18:08:34.000Z
 description: 静的サイトジェネレーターを使えば手軽に安全なブログが構築できます。HugoとNetlify CMSでブログを構築してみます。
 ---
 
