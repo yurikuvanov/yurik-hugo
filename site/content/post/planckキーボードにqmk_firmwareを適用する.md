@@ -1,5 +1,5 @@
 ---
-title: Planckキーボードにqmk_firmwareを適用する
+title: Planck Keyboardを購入、組み立て。macOSでqmk_firmwareもいじってみる
 date: 2018-09-03T08:44:20.000Z
 description: Planck Keyboardを組み立てた際の備忘録です。
 image: /img/2018-09-03-18-36-00.png
