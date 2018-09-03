@@ -1,8 +1,7 @@
 ---
-title: "Planckキーボードにqmk_firmwareを適用する"
-date: 2018-09-03T17:44:20+09:00
-draft: true
-slug: "planckキーボードにqmk_firmwareを適用する"
+title: Planckキーボードにqmk_firmwareを適用する
+date: 2018-09-03T08:44:20.000Z
+description: Planck Keyboardを組み立てた際の備忘録です。
 ---
 Planck Keyboardというキーボード組み立てキットを今年はじめにMassdropというサイトで購入しました。6月ごろに受け取ったまま放置していたのですが、この度ようやく組み立てることができました。
 
@@ -12,7 +11,9 @@ http://okapies.hateblo.jp/entry/2017/03/26/063136
 
 実際に組み立て終わったところ。
 
- ![](2018-09-03-18-36-00.png)
+ 
+
+![Planck Keyboard](/img/2018-09-03-18-36-00.png)
 
 Planckはqmk_firmwareでキーマッピングを自由に入れ替えられるのがメリットです。
 
@@ -22,11 +23,11 @@ http://leopardgecko.hatenablog.com/entry/2017/09/13/234549
 
 ただ、記事ではkeymap.cのみを新しいキーマップのディレクトリにコピーしていますが、私の場合はrules.mkも合わせて移さないとうまくいきませんでした。また、最後のmakeの部分はqmk_firmwareの仕様が変わっており、下記のようにしました。
 
-
-
 ```bash
 qmk_firmware> make planck/rev4:YOURKEYMAPDIR:dfu
 ```
+
+キーマップはとりあえず下記のようにしてみました。が、使っているうちにどんどん変えていくかなと思います。
 
 ```
 /* Qwerty
