@@ -1,4 +1,4 @@
-baseurl = "https://blog.yuri-k.com"
+baseurl = "https://yuri-k.com"
 languageCode = "ja-jp"
 title = "ゆり系"
 theme = "hugo-bingo"
