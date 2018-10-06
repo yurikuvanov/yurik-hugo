@@ -1,0 +1,71 @@
+$content-width-desktop: 700px;
+@mixin desktop {
+  @media screen and (min-width: 780px) {
+    @content;
+  }
+}
+body{
+	font-family: "Noto Sans JP script=japanese rev=2", sans-serif;
+	font-weight: 100;
+	font-size:16px;
+	font-style:normal;
+}
+header{
+	margin:0 auto 0 auto;
+	@include desktop {
+		max-width:$content-width-desktop;
+  }	
+}
+footer{
+	margin: auto 0 auto;
+	@include desktop {
+		max-width:$content-width-desktop;
+  }	
+}
+main{
+	margin:0 auto 0 auto;
+	@include desktop {
+		max-width:$content-width-desktop;
+  }
+}
+a{text-decoration:none;}
+h1{
+	font-weight:lighter;
+}
+h2{
+	font-weight:lighter;
+	a{color:#333;}
+}
+#list ul{
+	margin:0;
+	padding:0;
+	li{
+		list-style-type:none;
+		overflow:hidden;
+		margin:0 0 40px 0;
+		font-size:20px;
+	}
+	img{
+		width:200px;
+		float:left;
+		margin:0 20px 0 0;
+	}
+	p time{
+		font-size:14px;
+	}
+}
+.post-content{
+	h1{
+		margin:3rem auto 2rem auto;
+	}
+	img{
+		width:100%;
+		display:inline-block;
+		margin:2rem auto 2rem auto;
+	}
+	p{
+		line-height:1.8;
+		margin:1.5rem auto 1.5rem auto;
+		color:#222;
+	}
+}

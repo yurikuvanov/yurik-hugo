@@ -1,17 +1,14 @@
 {{ define "main" }}
 <main id="home">
     <div>
-        <div class="avatar">
-            <img src="https://www.gravatar.com/avatar/{{ md5 .Site.Params.email }}?s=240&d=mp" alt="gravatar">
-        </div>
+
         <div id="content">
             {{ .Content }}
-            {{ .Render "social-links" }}
         </div>
     </div>
 
     <div id="recent-posts">
-        <h2>Recent Posts</h2>
+        <h2><a href="/post/">blog posts</a></h2>
         <ul>
             {{ range first 5 .Data.Pages.ByPublishDate.Reverse }}
                 <li>
@@ -20,6 +17,8 @@
                 </li>
             {{ end }}
         </ul>
+        <h2>works</h2>
+        <h2>Twitter</h2>
     </div>
 </main>
 {{ end }}

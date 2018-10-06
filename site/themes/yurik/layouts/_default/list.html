@@ -4,6 +4,7 @@
     <ul>
         {{ range .Data.Pages }}
         <li>
+            <img src="{{ .Params.image}}">
             <a href="{{ .URL }}">{{ .Title }}</a>
             <p>{{ .Render "time-element" }}</p>
         </li>

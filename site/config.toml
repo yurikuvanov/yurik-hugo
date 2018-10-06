@@ -1,7 +1,7 @@
 baseurl = "https://yuri-k.com"
 languageCode = "ja-jp"
 title = "ゆり系"
-theme = "hugo-bingo"
+theme = "yurik"
 
 disableHugoGeneratorInject = true
 enableEmoji = true
