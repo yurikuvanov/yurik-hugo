@@ -20,7 +20,7 @@ footer{
 	margin: auto 0 auto;
 	@include desktop {
 		max-width:$content-width-desktop;
-  }	
+  }
 }
 main{
 	margin:0 auto 0 auto;
@@ -67,5 +67,8 @@ h2{
 		line-height:1.8;
 		margin:1.5rem auto 1.5rem auto;
 		color:#222;
+	}
+	time{
+		font-size:80%;
 	}
 }
