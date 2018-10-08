@@ -1,5 +1,10 @@
 {{ define "main" }}
 <main id="single">
+    {{ with .Resources.GetMatch (printf "**%s*" ($.Param "titleimage"))}} 
+    {{ $scaled := .Fill "700x300 smart" }}
+    {{ $scaled_retina := .Fill "1400x600 smart"}}
+    <img src="{{ $scaled.RelPermalink}}" srcset="{{ $scaled.RelPermalink}} 1x, {{ $scaled_retina.RelPermalink}} 2x">
+    {{ end }}
     <h1>{{ .Title }}</h1>
     <aside>{{ .Render "time-element" }}</aside>
     <section class="post-content">

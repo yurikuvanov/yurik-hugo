@@ -1,0 +1,52 @@
+{{- $original := .Page.Resources.GetMatch (printf "**%s*" (.Get "src")) -}}
+{{- $command := .Get "command" -}}
+{{- if and (not (isset .Params "width"))  (not (isset .Params "height")) -}}
+	{{- .Scratch.Set "size" (printf "795x" ) -}}
+	{{- .Scratch.Set "size_x2" (printf "1060x" ) -}}
+	{{- .Scratch.Set "width" (printf "530") -}}
+{{- else if and (eq (.Get "width") "half" ) (not (isset .Params "height")) -}}
+	{{ .Scratch.Set "size" (printf "390x" ) -}}
+	{{ .Scratch.Set "size_x2" (printf "520x" ) -}}
+	{{ .Scratch.Set "width" (printf "260") -}}
+{{- else if and (eq (.Get "width") "half" )  (isset .Params "height") -}}
+	{{- .Scratch.Set "size" (printf "390x%v" (.Get "height")) -}}
+	{{- .Scratch.Set "size_x2" (printf "520x%v" (mul (int (.Get "height")) 2) ) -}}
+	{{ .Scratch.Set "width" (printf "260") -}}
+{{- else if and (isset .Params "width")  (not (isset .Params "height")) -}}
+	{{- .Scratch.Set "size" (printf "%vx" (mul (int (.Get "width")) 1.5) ) -}}
+	{{- .Scratch.Set "size_x2" (printf "%vx" (mul (int (.Get "width")) 2) ) -}}
+	{{ .Scratch.Set "width" (.Get "width") -}}
+{{- else if and (not (isset .Params "width"))  (isset .Params "height") -}}
+	{{- .Scratch.Set "size" (printf "x%v" (mul (int (.Get "height")) 1.5) ) -}}
+	{{- .Scratch.Set "size_x2" (printf "x%v" (mul (int (.Get "height")) 2) ) -}}
+{{- else if and (isset .Params "width") (isset .Params "height") -}}
+	{{- .Scratch.Set "size" (printf "%vx%v" (mul (int (.Get "width")) 1.5 ) (mul (int (.Get "height")) 1.5) ) -}}
+	{{- .Scratch.Set "size_x2" (printf "%vx%v" (mul (int (.Get "width")) 2 ) (mul (int (.Get "height")) 2) ) -}}
+	{{ .Scratch.Set "width" (.Get "width") -}}
+{{- end -}}
+{{- $size :=  (.Scratch.Get "size") -}}
+{{- $size_x2 :=  (.Scratch.Get "size_x2") -}}
+{{- if or (not (isset .Params "command")) (eq $command "Resize") -}}
+	{{- .Scratch.Set "image" ($original.Resize $size) -}}
+	{{- .Scratch.Set "image_x2" ($original.Resize $size_x2) -}}
+{{- else if eq $command "Fit" -}}
+	{{- .Scratch.Set "image" ($original.Fit $size) -}}
+	{{- .Scratch.Set "image_x2" ($original.Fit $size_x2) -}}
+{{- else if eq $command "Fill" -}}
+	{{- .Scratch.Set "image" ($original.Fill $size) -}}
+	{{- .Scratch.Set "image_x2" ($original.Fill $size_x2) -}}
+{{- else -}}
+	{{- errorf "エラー commandにはResize、Fit、Fillのいずれかを入れてください" }}
+{{- end }}
+{{- $image := .Scratch.Get "image" -}}
+{{- $image_x2 := .Scratch.Get "image_x2" -}}
+<figure class="image{{ with .Get "class" }} {{.}}{{ end }}{{if eq (.Get "width") "half" }} half{{end}}" style="width: {{ .Scratch.Get "width"}}px;" >
+	{{if or (.Get "link") (.Get "href")}}
+	<a rel="nofollow" target="_blank" class="image-link" href="{{ with .Get "link" }}{{.}}{{else}}{{.Get "href"}}{{end}}" data-ipc-count>
+	{{else}}
+	<a class="image-pop" href='{{ $original.RelPermalink }}'>{{ end }}
+		<img style="{{with .Get "noborder"}}border:0px;{{end}} {{with .Get "padding"}}padding:{{.}};{{end}} " src="{{ $image.RelPermalink }}" srcset="{{ $image.RelPermalink }} 1x,
+	{{ $image_x2.RelPermalink }} 2x" >
+	</a>
+	{{ with .Inner }}<figcaption><p>{{ . | markdownify}}</p></figcaption>{{ end }}
+</figure>

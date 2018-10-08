@@ -1,0 +1,29 @@
+{{if eq (.Get "popup") "false"}}
+<figure class="image{{ with .Get "class" }} {{.}}{{ end }}" 
+  style="
+    {{ with .Get "width" }}width:{{.}};{{ end }}
+    {{ with .Get "height" }}height:{{.}};{{ end }}
+      ">
+  {{ with .Get "title" }}
+  <h5 class="figure-title">{{.}}</h5>
+  {{end}}
+  {{ with .Get "label" }}<span class="label">{{.}}</span>{{end}}
+  <img src="{{ if or (.Get "thumbprefix") (.Get "thumbsrc") }}{{ if .Get "thumbprefix" }}{{ .Get "thumbprefix" }}{{ .Get "src" }}{{else}}{{.Get "thumbsrc"}}{{end}}{{else}}{{ .Get "src"}}{{end}}" {{ if or (.Get "alt") (.Get "caption") }}alt="{{ with .Get "alt"}}{{.}}{{else}}{{ .Get "caption" }}{{ end }}"{{ end }} style="{{with .Get "border"}}border:{{.}};{{end}}" />
+  {{ if len .Inner }}<figcaption><p>{{ .Inner | markdownify}}</p></figcaption>{{ end }}
+</figure>
+{{else}}
+<figure class="image{{ with .Get "class" }} {{.}}{{ end }}" style="{{ with .Get "width" }}width:{{.}};{{ end }}{{ with .Get "height" }}height:{{.}};{{ end }}">
+  {{ with .Get "title" }}
+    <h5 class="figure-title">{{.}}</h5>
+  {{end}}
+  {{ if or (.Get "link") (.Get "href") }}
+    <a rel="nofollow" target="_blank" class="image-link" href="{{ with .Get "link" }}{{.}}{{else}}{{.Get "href"}}{{end}}" data-ipc-count>
+  {{ else }}<a class="image-pop" href='{{ .Get "src" }}'>{{ end }}
+    {{ with .Get "label" }}<span class="label">{{.}}</span>{{end}}
+        <img src="{{- if .Get "thumbprefix" -}}{{- .Get "thumbprefix" -}}{{- .Get "src" -}}{{- else if .Get "thumbsrc" -}}{{- .Get "thumbsrc" -}}{{- else if .Get "thumbsuffix" -}}{{- $Filename := .Get "src" -}}{{- $Stripped := (replaceRE ".(jpg|png|JPG|PNG|gif|GIF)" "" $Filename) -}}{{- $Extension := (replace $Filename $Stripped "") -}}{{- $Stripped -}}{{- .Get "thumbsuffix" -}}{{- $Extension -}}{{- else if .Get "src" -}}{{- .Get "src" -}}{{- end -}}" {{- if or (.Get "alt") (.Get "caption") -}}alt="{{ with .Get "alt"}}{{.}}{{else}}{{ .Get "caption" }}{{ end }}"{{ end }} style="{{with .Get "border"}}border:{{.}};{{end}}" />
+    </a>
+    {{ if len .Inner }}<figcaption><p>{{ .Inner | markdownify}}</p></figcaption>{{ end }}
+</figure>
+
+{{end}}
+

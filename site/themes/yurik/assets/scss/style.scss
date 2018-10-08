@@ -71,4 +71,26 @@ h2{
 	time{
 		font-size:80%;
 	}
+	figure{
+		margin: 1rem auto 2rem auto;
+		text-align:center;
+		img{
+			margin:0;
+		}
+		figcaption{
+			margin:0;
+			padding:0;
+			p{
+				margin:0;
+				padding:0;
+			}
+		}
+	}
+	.image-horizontal-2{
+		text-align:center;
+		figure.image{
+			display:inline-block;
+			width:47%!important;
+		}
+	}
 }

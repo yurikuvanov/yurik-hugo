@@ -22,7 +22,7 @@ googleAnalytics = "UA-833207-7"
 
   [[menu.main]]
     identifier = "post"
-    name = "Posts"
+    name = "blog"
     url = "/post"
     weight = 20
 

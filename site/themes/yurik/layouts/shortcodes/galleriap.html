@@ -1,0 +1,20 @@
+{{ $paramCount := len .Params }}
+{{ if gt $paramCount 0 }}
+<div class="galleria" style=" max-width: 600px; height: 500px; background:#000; margin:20px auto 30px auto;">
+{{ range $param := .Params }}
+  {{ $items := split $param "|" }}
+  {{ $itemCount := len $items }}
+    {{- $original := $.Page.Resources.GetMatch (printf "**%s*" (index $items 0)) -}}
+    {{ $middleImage := $original.Fit "1160x860 Center" }}
+    {{ $smallImage := $original.Fill "80x80 Center" }}
+    <a href="{{ $middleImage.RelPermalink }}">
+      <img
+        src="{{ $smallImage.RelPermalink }}"
+        {{with (index $items 1)}}title="{{ . | markdownify }}"{{end}}
+        {{with (index $items 2)}}alt="{{ . | markdownify }}"{{end}}
+        data-big="{{ $original.RelPermalink }}"
+      >
+    </a>
+{{ end }}
+</div>
+{{ end }}

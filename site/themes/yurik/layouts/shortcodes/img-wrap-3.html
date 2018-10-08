@@ -1,0 +1,4 @@
+<div class="image-horizontal-3" {{ with .Get "style" }}style="{{. | safeCSS}}"{{end}}>
+    {{ with .Inner }}{{ . }}{{ end }}
+    {{ with .Get "caption"}}<p>{{. | markdownify}}</p>{{end}}
+</div>
