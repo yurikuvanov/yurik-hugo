@@ -2,7 +2,7 @@
 title: TotalleeのiPhone XS Maxケース3種を買ってみてレビュー
 date: 2018-10-27
 description: 米国のスタートアップ「Totallee」のiPhone XS Max用ケースを3種類購入してみたので紹介します。
-titleimage: IMG_3019.jpg
+titleimage: "f8ddc401.jpg"
 ---
 
 
