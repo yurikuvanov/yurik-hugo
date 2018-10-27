@@ -4,7 +4,11 @@
     <ul>
         {{ range .Data.Pages }}
         <li>
-            <img src="{{ .Params.image}}">
+    {{ with .Resources.GetMatch (printf "**%s*" (.Param "titleimage"))}} 
+    {{ $scaled := .Fill "300x200 smart" }}
+    {{ $scaled_retina := .Fill "600x400 smart" }}
+    <img src="{{ $scaled.Permalink}}" srcset="{{ $scaled.Permalink}} 1x, {{ $scaled_retina.Permalink}} 2x">
+    {{ end }}
             <a href="{{ .URL }}">{{ .Title }}</a>
             <p>{{ .Render "time-element" }}</p>
         </li>
